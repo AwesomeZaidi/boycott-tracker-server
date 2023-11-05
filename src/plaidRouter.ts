@@ -34,7 +34,7 @@ plaidRouter.post("/link", async (req, res) => {
     user: {
       client_user_id: _.uniqueId(),
     },
-    client_name: "Techmade",
+    client_name: "Boycott Tracker",
     products: [Products.Transactions],
     country_codes: [CountryCode.Us],
     language: "en",
