@@ -17,15 +17,16 @@ const plaidRouter = Router();
 plaidRouter.use(bodyParser.urlencoded({ extended: false }));
 
 const configuration = new Configuration({
-  basePath: PlaidEnvironments.development,
+  basePath: PlaidEnvironments.sandbox,
+  username: "user_good",
+  password: "pass_good",
   baseOptions: {
     headers: {
       "PLAID-CLIENT-ID": "654071b04b5732001c52f1f1",
-      "PLAID-SECRET": "803680d80e757a0b313c39abccb50c",
+      "PLAID-SECRET": "bc7a4a6ca8ef7ead85c8e5bc110313",
     },
   },
 });
-
 const client = new PlaidApi(configuration);
 
 plaidRouter.post("/link", async (req, res) => {
@@ -33,11 +34,10 @@ plaidRouter.post("/link", async (req, res) => {
     user: {
       client_user_id: _.uniqueId(),
     },
-    client_name: "Boycott Tracker",
+    client_name: "Techmade",
     products: [Products.Transactions],
     country_codes: [CountryCode.Us],
     language: "en",
-    webhook: "https://sample-web-hook.com",
   };
   try {
     // console.log("in try");
