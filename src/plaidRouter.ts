@@ -17,13 +17,11 @@ const plaidRouter = Router();
 plaidRouter.use(bodyParser.urlencoded({ extended: false }));
 
 const configuration = new Configuration({
-  basePath: PlaidEnvironments.sandbox,
-  username: "user_good",
-  password: "pass_good",
+  basePath: PlaidEnvironments.development,
   baseOptions: {
     headers: {
       "PLAID-CLIENT-ID": "654071b04b5732001c52f1f1",
-      "PLAID-SECRET": "bc7a4a6ca8ef7ead85c8e5bc110313",
+      "PLAID-SECRET": "803680d80e757a0b313c39abccb50c",
     },
   },
 });
